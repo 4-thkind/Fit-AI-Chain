@@ -105,7 +105,7 @@ export default function ExerciseLogger({ username, onLogSaved }: ExerciseLoggerP
       <CardContent className="p-6 space-y-5">
         {/* Header */}
         <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600">
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-500 to-amber-600">
             <Dumbbell className="h-5 w-5 text-white" />
           </div>
           <div>
@@ -165,7 +165,7 @@ export default function ExerciseLogger({ username, onLogSaved }: ExerciseLoggerP
                       key={exercise.name}
                       type="button"
                       onClick={() => handleSelectExercise(exercise)}
-                      className="flex w-full items-center gap-3 px-4 py-3 text-left transition hover:bg-emerald-50"
+                      className="flex w-full items-center gap-3 px-4 py-3 text-left transition hover:bg-orange-50"
                     >
                       <span className="text-lg">{exercise.icon}</span>
                       <div className="flex-1">
@@ -182,7 +182,7 @@ export default function ExerciseLogger({ username, onLogSaved }: ExerciseLoggerP
           </div>
 
           {selectedExercise && (
-            <Badge className="bg-emerald-100 text-emerald-700 hover:bg-emerald-100">
+            <Badge className="bg-orange-100 text-orange-700 hover:bg-orange-100">
               {selectedExercise.icon} {selectedExercise.name} · {selectedExercise.caloriesPerMin} cal/min
             </Badge>
           )}
@@ -217,11 +217,11 @@ export default function ExerciseLogger({ username, onLogSaved }: ExerciseLoggerP
                   type="button"
                   onClick={() => setIntensity(key)}
                   className={`rounded-2xl border-2 p-3 text-center transition-all ${intensity === key
-                      ? 'border-emerald-500 bg-emerald-50 shadow-sm'
+                      ? 'border-orange-500 bg-orange-50 shadow-sm'
                       : 'border-slate-200 bg-white hover:border-slate-300'
                     }`}
                 >
-                  <p className={`text-sm font-semibold ${intensity === key ? 'text-emerald-700' : 'text-slate-900'}`}>
+                  <p className={`text-sm font-semibold ${intensity === key ? 'text-orange-700' : 'text-slate-900'}`}>
                     {info.label}
                   </p>
                   <p className="mt-0.5 text-xs text-slate-500">×{info.multiplier}</p>
@@ -233,19 +233,19 @@ export default function ExerciseLogger({ username, onLogSaved }: ExerciseLoggerP
 
         {/* Live preview */}
         {selectedExercise && isValidDuration && (
-          <div className="rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-50 p-4">
+          <div className="rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 p-4">
             <div className="grid grid-cols-3 gap-3 text-center">
               <div>
-                <p className="text-xs uppercase tracking-wide text-emerald-600">Duration</p>
+                <p className="text-xs uppercase tracking-wide text-orange-600">Duration</p>
                 <p className="mt-1 flex items-center justify-center gap-1 text-xl font-bold text-slate-900">
-                  <Clock className="h-4 w-4 text-emerald-500" />
+                  <Clock className="h-4 w-4 text-orange-500" />
                   {durationMinutes}m
                 </p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-wide text-emerald-600">Intensity</p>
+                <p className="text-xs uppercase tracking-wide text-orange-600">Intensity</p>
                 <p className="mt-1 flex items-center justify-center gap-1 text-xl font-bold text-slate-900">
-                  <Zap className="h-4 w-4 text-emerald-500" />
+                  <Zap className="h-4 w-4 text-orange-500" />
                   {INTENSITY_MULTIPLIERS[intensity].label}
                 </p>
               </div>
@@ -262,7 +262,7 @@ export default function ExerciseLogger({ username, onLogSaved }: ExerciseLoggerP
 
         {/* Save button */}
         <Button
-          className="h-12 w-full rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white hover:from-emerald-600 hover:to-teal-700 disabled:opacity-50"
+          className="h-12 w-full rounded-2xl bg-gradient-to-r from-orange-500 to-amber-600 text-white hover:from-orange-600 hover:to-amber-700 disabled:opacity-50"
           disabled={!selectedExercise || !isValidDuration || isSaving}
           onClick={handleSave}
         >

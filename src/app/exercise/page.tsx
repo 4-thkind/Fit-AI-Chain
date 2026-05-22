@@ -39,7 +39,7 @@ const categoryColors: Record<string, { bg: string; text: string }> = {
   cardio: { bg: 'bg-blue-100', text: 'text-blue-700' },
   strength: { bg: 'bg-purple-100', text: 'text-purple-700' },
   flexibility: { bg: 'bg-amber-100', text: 'text-amber-700' },
-  sports: { bg: 'bg-emerald-100', text: 'text-emerald-700' },
+  sports: { bg: 'bg-orange-100', text: 'text-orange-700' },
 }
 
 function getCategoryStyle(category: string | null) {
@@ -157,12 +157,12 @@ export default function ExercisePage() {
 
   if (isLoading || !mounted) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-orange-50 to-amber-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-14 h-14 bg-emerald-200 rounded-3xl flex items-center justify-center mx-auto mb-4">
-            <Dumbbell className="w-7 h-7 text-emerald-700" />
+          <div className="w-14 h-14 bg-orange-200 rounded-3xl flex items-center justify-center mx-auto mb-4">
+            <Dumbbell className="w-7 h-7 text-orange-700" />
           </div>
-          <p className="text-emerald-700">
+          <p className="text-orange-700">
             {isLoading ? 'Checking authentication...' : 'Loading exercises...'}
           </p>
         </div>
@@ -173,10 +173,10 @@ export default function ExercisePage() {
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.18),_transparent_40%),linear-gradient(180deg,_#ecfdf5_0%,_#f0fdfa_100%)]">
       {/* Sticky header */}
-      <div className="sticky top-0 z-30 border-b border-emerald-100 bg-white/80 backdrop-blur-xl">
+      <div className="sticky top-0 z-30 border-b border-orange-100 bg-white/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
           <div>
-            <p className="text-sm font-medium text-emerald-600">Workout tracker</p>
+            <p className="text-sm font-medium text-orange-600">Workout tracker</p>
             <h1 className="text-2xl font-bold text-slate-900">Exercise</h1>
           </div>
           <div className="text-right">
@@ -208,11 +208,11 @@ export default function ExercisePage() {
           <Card className="border-0 bg-white shadow-xl">
             <CardContent className="p-5">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-100">
-                  <Clock className="h-5 w-5 text-emerald-600" />
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-orange-100">
+                  <Clock className="h-5 w-5 text-orange-600" />
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-wide text-emerald-600">Active Today</p>
+                  <p className="text-xs uppercase tracking-wide text-orange-600">Active Today</p>
                   <p className="text-2xl font-bold text-slate-900">{todayDuration} min</p>
                 </div>
               </div>
@@ -253,7 +253,7 @@ export default function ExercisePage() {
               <h2 className="text-xl font-bold text-slate-900">Exercise History</h2>
               <p className="text-sm text-slate-500">View and manage your logged workouts</p>
             </div>
-            <Badge className="bg-emerald-100 text-emerald-700 hover:bg-emerald-100">
+            <Badge className="bg-orange-100 text-orange-700 hover:bg-orange-100">
               {logs.length} logged
             </Badge>
           </div>
@@ -268,7 +268,7 @@ export default function ExercisePage() {
                 size="sm"
                 onClick={() => setDateFilter(filter)}
                 className={`rounded-2xl ${
-                  dateFilter === filter ? 'bg-emerald-500 text-white hover:bg-emerald-600' : ''
+                  dateFilter === filter ? 'bg-orange-500 text-white hover:bg-orange-600' : ''
                 }`}
               >
                 {filter === 'today' ? 'Today' : filter === 'week' ? 'This Week' : 'All Time'}
@@ -278,7 +278,7 @@ export default function ExercisePage() {
 
           {/* Filtered summary */}
           {logs.length > 0 && (
-            <Card className="border-0 bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-xl">
+            <Card className="border-0 bg-gradient-to-br from-orange-500 to-amber-600 text-white shadow-xl">
               <CardContent className="p-5">
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div>
@@ -304,13 +304,13 @@ export default function ExercisePage() {
           {isLoadingLogs ? (
             <Card className="border-0 bg-white shadow-lg">
               <CardContent className="flex items-center justify-center p-10">
-                <Loader2 className="h-8 w-8 animate-spin text-emerald-500" />
+                <Loader2 className="h-8 w-8 animate-spin text-orange-500" />
               </CardContent>
             </Card>
           ) : logs.length === 0 ? (
             <Card className="border-0 bg-white shadow-lg">
               <CardContent className="p-10 text-center">
-                <Dumbbell className="mx-auto mb-4 h-10 w-10 text-emerald-400" />
+                <Dumbbell className="mx-auto mb-4 h-10 w-10 text-orange-400" />
                 <h3 className="text-lg font-semibold text-slate-900">No exercises logged yet</h3>
                 <p className="mt-2 text-sm text-slate-500">
                   Use the form above to log your first workout!
@@ -325,8 +325,8 @@ export default function ExercisePage() {
                   <Card key={log.id} className="border-0 bg-white shadow-lg overflow-hidden">
                     <CardContent className="flex items-center gap-4 p-4">
                       {/* Icon */}
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-100 to-teal-100">
-                        <Dumbbell className="h-6 w-6 text-emerald-600" />
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-100 to-amber-100">
+                        <Dumbbell className="h-6 w-6 text-orange-600" />
                       </div>
 
                       {/* Details */}
